@@ -40,6 +40,15 @@ class LocalClient(svn.common.CommonClient):
             args,
             wd=self.path)
 
+    def rename(self, src, dst):
+        args = [src, dst]
+
+        self.run_command(
+            'rename',
+            args,
+            wd=self.path
+        )
+
     def commit(self, message, rel_filepaths=[]):
         args = ['-m', message] + rel_filepaths
 
